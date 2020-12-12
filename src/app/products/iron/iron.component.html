@@ -1,0 +1,182 @@
+
+
+
+<nav class="mobilenavigation" [ngClass]="isMenuOpen  || isSortMenuOpen ||isFilterMenuOpen? 'open' : 'closed'">
+    <ul>
+        <li class="li-mnav">
+            <a href="#nav" class="mnav mnav-sortby" 
+            [ngClass]="isSortMenuOpen ? 'open' : 'closed'"
+            (click)='OpenSortMenu($event,"sort")'>
+                <span>Sort</span>
+            </a>
+        </li>
+        <li class="li-mnav">
+            <a href="#nav" class="mnav mnav-filter"
+            [ngClass]="isFilterMenuOpen ? 'open' : 'closed'"
+             (click)='OpenFilterMenu($event,"filter")'>
+                <span>Filter</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+
+<nav class="mobile-filters">
+    <!-- <ul *ngIf="isFilterMenuOpen">
+        <li>
+            Filter
+        </li>
+    </ul> -->
+
+    <div [ngClass]="isSortMenuOpen? 'open':'closed'" class="sortby mob-sortby">
+        <ng-container *ngFor="let sort of sortby;let i= index">
+            <div>
+               <input class="form-check-input" type="radio" value={{sort}} 
+                name=sortby   [checked]='!sort'
+               (change)="onItemChange($event.target.value)" *ngIf="i!==0"/>{{sort}}
+            </div>
+            
+
+
+            <!-- <div (click)="getSortBy(sort,i)"
+            [ngClass]='selectedItem === i?"active":""'>{{sort}}</div> -->
+        </ng-container>
+    </div>
+</nav>
+
+
+<section class="product-page">
+    <div class="product-container">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-12">
+                <div class="left-panel white-bg">
+                    <div class="product-img">
+                        <img src="https://rukminim1.flixcart.com/flap/540/289/image/3fd264.jpg?q=50">
+                        <hr>
+                    </div>
+                    <div class="product-filter-category"  [ngClass]="isFilterMenuOpen? 'open':'closed'"> 
+                         <div class="filter-heading">
+                            <span> Filters</span>   
+                            <hr class="mb-0">
+                         </div>
+                         <div class="category">
+                             <div class="cat-heading">
+                                <div id="accordion" class="panel-group">
+                                    <div *ngFor="let slide of cookerFilter;let i=index" class="panel panel-default">
+                                        <div class="card-header">
+                                            <a class="card-link accordion-toggle" data-toggle="collapse" href='#filter{{i}}'>
+                                             {{slide.filter_name}} 
+                                            </a>
+    
+                                          </div>
+                                          <div id='filter{{i}}' class="collapse" [ngClass]='i==0?"show": ""'>
+                                            
+                                            <div class="card-body">
+                                                <div class="checkbox" *ngFor="let val of slide.values">
+                                                    <input type="checkbox" 
+                                                    [value]='val'
+                                                    [checked]='!val' 
+                                                    (change)="filterChange(slide.filter_name,val,$event)" />
+                                                    <span *ngIf='slide.filter_name!="Power"'>
+                                                        {{val}}
+                                                    </span>
+                                                    <span *ngIf='slide.filter_name=="Power"'>
+                                                        {{val}} W
+                                                    </span>
+                                                </div>
+                                            </div>
+                                          </div>
+                                          <svg width="16" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="ttx38n"><path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="IIvmWM"></path></svg>
+                                    </div>
+                                   
+                                </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+               
+            </div>
+
+            <div class="col-md-9 col-lg-9 col-12">
+                <div class="right-panel white-bg">
+                    <div class="heading">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="section-tittle">
+                                    <div class="breadcrumb1">
+                                        <a [routerLink]="['/']">Home</a>
+                                        <span> > </span>
+                                        <a [routerLink]="['/cooker']">Cooker</a>
+                                    </div>
+                                    
+                                    <hr class="for-mob">
+                                </div>
+                            </div>
+                           
+                            <div class="col-md-12 sortby">
+                                <ng-container *ngFor="let sort of sortby;let i= index">
+                                    <div (click)="getSortBy(sort,i)"
+                                    [ngClass]='selectedItem === i?"active":""'>{{sort}}</div>
+                                </ng-container>
+                                    <div class="f-right categry-row">
+                                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
+                                                    role="tab" aria-controls="nav-home" aria-selected="true">All</a>
+                                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                                                    role="tab" aria-controls="nav-profile" aria-selected="false">New</a>
+                                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
+                                                    role="tab" aria-controls="nav-contact" aria-selected="false">Featured</a>
+                                                <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last"
+                                                    role="tab" aria-controls="nav-contact" aria-selected="false">Offer</a>
+                                            </div>
+                                    </div>
+                                </div>
+
+                             
+                        </div>
+                        <hr class="for-pc mt-1">
+                    </div>
+            
+                    <div class="product">
+                        <div class="row">
+                            <ng-container *ngFor="let cooker of productDataFilter;let i=index">
+                                <div class="col-xl-3 col-lg-3 col-md-6">
+                                    <div class="single-product mb-60">
+                                        <div class="product-img">
+                                          <img src={{cooker.img1}} >
+                                            <div class="new-product">
+                                                <span>New</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-caption">
+                                           <a  routerLink='/iron/{{cooker.name}}+{{cooker.idno}}'>{{cooker.name}}</a>
+                                            <div class="product-ratting">
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star low-star"></i>
+                                                <i class="far fa-star low-star"></i>
+                                            </div>
+                
+                                            <div class="price">
+                                                <ul>
+                                                    <li>₹{{cooker.netprice}}</li>
+                                                    <li class="discount">₹{{cooker.price}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+               
+                <hr>
+            </div>
+        </div>
+    </div>
+</section>

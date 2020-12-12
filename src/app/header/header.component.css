@@ -1,0 +1,108 @@
+ .main-menu ul li {
+     display: inline-block;
+     position: relative;
+     z-index: 1;
+ }
+ 
+ .main-menu ul {
+     list-style: none;
+ }
+ 
+ .f-right {
+     float: right;
+ }
+ 
+ .main-menu ul {
+     padding-bottom: 0;
+     margin-bottom: 0;
+ }
+ 
+ .main-menu ul li a {
+     font-size: 18px;
+     font-weight: bold;
+     color: #fff;
+     display: inline-block;
+     text-transform: capitalize;
+     padding: 25px 22px;
+     display: block;
+     -webkit-transition: all .3s ease-out 0s;
+     -moz-transition: all .3s ease-out 0s;
+     -ms-transition: all .3s ease-out 0s;
+     -o-transition: all .3s ease-out 0s;
+     transition: all .3s ease-out 0s;
+ }
+ 
+ .main-menu ul li a {
+     padding: 25px 13px;
+ }
+ 
+ .header-right {
+     display: flex!important;
+ }
+ 
+ .header-right {
+     list-style: none;
+     float: none !important;
+     margin-top: 20px;
+ }
+ 
+ .header-right li {
+     padding-left: 14px;
+ }
+ 
+ .header-right li:nth-child(1) {
+     width: 100%;
+ }
+ 
+ .header-right .form-box {
+     position: relative;
+     width: 85%;
+ }
+ 
+ .header-right .form-box input {
+     border: 1px solid #eee;
+     border-radius: 30px;
+     padding: 10px 20px;
+     width: 100%;
+ }
+ 
+ .header-right .form-box .search-icon {
+     position: absolute;
+     top: 12px;
+     right: 17px;
+ }
+ 
+ .header-right .form-box .search-icon i {
+     color: #6c6a6a;
+     cursor: pointer;
+ }
+ 
+ #navigation .btn {
+     border-radius: 25px;
+     padding-top: 10px;
+     padding-bottom: 10px
+ }
+ 
+ .header.header-sticky {
+     background-color: #243e77;
+ }
+ 
+ @media screen and (max-width:551px) {
+     .fix-card .header-right {
+         float: left !important;
+         padding-left: 0;
+         width: 100%;
+     }
+     .fix-card .header-right>li {
+         display: block;
+         padding: 0;
+     }
+     .fix-card .header-right>li .form-box {
+         float: left !important;
+         width: 100%;
+     }
+     .fix-card .header-right>li .form-box input {
+         border-radius: 14px;
+         padding: 8px 20px;
+     }
+ }
