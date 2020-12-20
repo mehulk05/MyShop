@@ -113,6 +113,25 @@ export class GetfilterFromCSVService {
       );
   }
 
+   public getLatestProducts(): Observable<any> {
+    const id = "1GLoPM2OKSGQPypZeBL3uCl4diAi4YXLye-LrXIx4jr4"
+    const url = `https://spreadsheets.google.com/feeds/list/${id}/ovolh3d/public/values?alt=json`;
+
+    return this.http.get(url)
+      .pipe(
+        map((res: any) => {
+          const data = res.feed.entry;
+          let returnArray:any
+          if (data && data.length > 0) {
+            returnArray=    this.getDataFromRawCSV(data)
+          }
+          console.log(returnArray)
+          return returnArray;
+        })
+      );
+  }
+
+
   getDataFromRawCSV(data){
 
     const returnArray: Array<any> = [];

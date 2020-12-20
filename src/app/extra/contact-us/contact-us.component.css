@@ -1,0 +1,23 @@
+.bg-grey {
+  background-color: #f6f6f6;
+}
+.container-fluid {
+  padding: 60px 50px;
+}
+#contact h2{
+  padding-top: 20px;
+  padding-bottom: 35px;
+}
+#map{
+  padding-top: 35px;
+}
+iframe{
+  width: 100%;
+  border:1px solid black !important
+}
+.address p{
+  margin-bottom: 5px;
+}
+.contact{
+  margin-top: 10px;
+}

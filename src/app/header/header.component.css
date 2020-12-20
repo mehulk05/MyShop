@@ -3,7 +3,10 @@
      position: relative;
      z-index: 1;
  }
- 
+ input:focus{
+    outline: -webkit-focus-ring-color auto 0px;
+
+ }
  .main-menu ul {
      list-style: none;
  }
@@ -61,7 +64,7 @@
  
  .header-right .form-box input {
      border: 1px solid #eee;
-     border-radius: 30px;
+     border-radius: 10px;
      padding: 10px 20px;
      width: 100%;
  }
@@ -106,3 +109,49 @@
          padding: 8px 20px;
      }
  }
+
+
+ .dropdown {
+   
+    width: 72%;
+    /* background: #fff; */
+    position: absolute;
+    top: 66px;
+    left: 25%;
+    z-index: 5;
+    border-radius: 8px;
+    
+    border: none;
+   
+}
+ option{
+    padding: 8px;
+    border: 1px solid #efefef;
+    background: #fff;
+    border-radius: 8px;
+    font-weight: 500;
+
+ }
+ .dropdown-option:hover{
+     cursor: pointer;
+     background-color: gainsboro;
+ }
+
+@media screen and (max-width:551px){
+    .dropdown {
+     
+      
+        top: 63px;
+        z-index: 5;
+       left:auto;
+        border-radius: 5px;
+        width: 92%;
+    }
+}
+
+.logo a:hover{
+    text-decoration: none;
+}
+.logo:focus{
+    color:#fff
+}

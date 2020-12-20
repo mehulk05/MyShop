@@ -6,7 +6,8 @@
 .single-product .product-img {
     margin-bottom: 30px;
     position: relative;
-    border: 1px solid gainsboro
+    height: 300px;
+    padding: 20px;
 }
 
 .single-product .product-img img {
@@ -61,4 +62,12 @@
 
 .section-tittle {
     text-align: left;
+}
+
+
+@media screen and (max-width:550px){
+    .single-product .product-img{
+        height: auto;
+        
+    }
 }

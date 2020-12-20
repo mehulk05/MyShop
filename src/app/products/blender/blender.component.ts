@@ -20,15 +20,22 @@ export class BlenderComponent implements OnInit {
   cookerFilter = [
   
   ]
-
+  isloading: boolean;
+  error: any;
   constructor(private csv: CsvParserService,private csvFilter:GetfilterFromCSVService) { }
 
   ngOnInit(): void {
+    this.isloading=true
     this.csvFilter.getBlenderFilter().subscribe(filter =>{
       if(filter){
         this.convertRawFilters(filter)
       }
-      
+      this.isloading= false
+    }
+    ,e=>{
+      this.isloading= false
+      this.error = e
+      console.log(e)
     })
 
     this.csv.getBlender().subscribe(res => {

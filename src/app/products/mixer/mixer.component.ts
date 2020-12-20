@@ -16,21 +16,28 @@ export class MixerComponent implements OnInit {
   isFilterMenuOpen:boolean=false
   sortby = ['Sort By', 'Relevance', 'Price -- Low to High', 'Price -- High to Low']
   filtervalues = []
+  isloading: boolean;
   selectedFilters = []
   cookerFilter = [
     // { filter_name: 'BrandName', values: ['Prestige', 'Bajaj', 'Pegion', 'Butterfly'] },
     // { filter_name: 'Power', values: ['350','500','750','1000'] },
  
   ]
+  error: any;
 
   constructor(private csv: CsvParserService,private csvFilter:GetfilterFromCSVService) { }
 
   ngOnInit(): void {
+    this.isloading=true
     this.csvFilter.getMixerFilter().subscribe(filter =>{
       if(filter){
         this.convertRawFilters(filter)
       }
-      
+      this.isloading= false
+    },e=>{
+      this.isloading= false
+      this.error = e
+      console.log(e)
     })
 
     this.csv.getMixer().subscribe(res => {
@@ -130,7 +137,7 @@ export class MixerComponent implements OnInit {
     else {
       this.selectedItem = i
     }
-    console.log(this.selectedItem,data)
+    this.mixerDataFilter = this.csv.sortDataByPrice(this.selectedItem,data,this.mixerDataFilter)
   }
 
   onItemChange(value){

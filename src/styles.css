@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~bootstrap/dist/css/bootstrap.css";
+
+
 .nav-btn {
     height: 47px;
     position: absolute;
@@ -9,6 +11,7 @@
     top: 100px !important;
     background-color: grey;
 }
+
 
 
 
@@ -159,6 +162,9 @@
 
 
 @media screen and (max-width:551px) {
+    .single-product .product-img .new-product {
+        display: none
+    }
     .for-pc {
         display: none;
     }
@@ -524,4 +530,11 @@ section.product-page {
     .f-right .nav-tabs{
         margin-bottom: 20px;
     }
+}
+
+.loading{
+    position: relative;
+    text-align: center;
+    margin-top: 5%;
+    padding-bottom: 300px;
 }

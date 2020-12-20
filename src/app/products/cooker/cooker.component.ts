@@ -19,16 +19,21 @@ export class CookerComponent implements OnInit {
   selectedFilters = []
   cookerFilter = [
   ]
-
+  isloading: boolean;
+  error: any;
   constructor(private csv: CsvParserService,private csvFilter:GetfilterFromCSVService) { }
 
   ngOnInit(): void {
-
+    this.isloading=true
     this.csvFilter.getCookerFilter().subscribe(filter =>{
       if(filter){
         this.convertRawFilters(filter)
       }
-      
+      this.isloading= false
+    },e=>{
+      this.isloading= false
+      this.error = e
+      console.log(e)
     })
 
     this.csv.getCooker().subscribe(res => {
@@ -134,7 +139,8 @@ export class CookerComponent implements OnInit {
     else {
       this.selectedItem = i
     }
-    console.log(this.selectedItem,data)
+   this.productDataFilter = this.csv.sortDataByPrice(this.selectedItem,data,this.productDataFilter)
+ 
   }
 
   onItemChange(value){

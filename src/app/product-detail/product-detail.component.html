@@ -1,1 +1,184 @@
-<p>product-detail works!</p>
+<div class="loading" *ngIf="isloading">
+  <div class="spinner-border"></div>
+  <h3>Loading ...</h3>
+  </div>
+<div  *ngIf = "!isloading">
+
+<div class="product-detail" *ngIf="productDetail ">
+  <div class="bg-white desktop-only">
+    <div class="col-md-5 col-xs-12 left-img">
+      <div class="images">
+        <div class="small-img">
+          <ul>
+            <li 
+             *ngFor="let image of images;let i = index" 
+             (mouseover)="selectImage(image,i)"
+             [ngClass]="{'active': selectedItem == i}"
+             >
+              <img src="{{ image }}" 
+             
+              />
+            </li>
+          </ul>
+        </div>
+        <div class="center-img">
+          <div class="padd-img">
+            <img src="{{ selectedImg }}" />
+          </div>
+        
+          <div class="button">
+            <button class="btn btn-primary" routerLink="/contact-us">
+                <span class="buynow"></span>
+                CONTACT HERE TO BUY
+            </button>
+        </div>
+        </div>
+        
+      </div>
+
+     
+    </div>
+
+    <div class="col-md-7 col-xs-12 right-img">
+      <div class="details">
+        <div class="breadcrumb-name">
+          <ul>
+            <li>
+              <a routerLink="/">Home</a>
+              <span class="arrow"> > </span>
+            </li>
+            <li>
+              <a routerLink="/{{ category }}">{{ category }}</a>
+              <span class="arrow"> > </span>
+            </li>
+            <li>
+              <a>{{ productDetail?.name }}</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="title">
+          {{ productDetail?.name }}
+        </div>
+
+        <div class="price">
+          <ul>
+            <li>₹{{productDetail?.netprice}}</li>
+            <li class="discount">₹{{productDetail?.price}}</li>
+            <li class="dispercent">{{productDetail?.discount}}% off</li>
+          </ul>
+        </div>
+
+        <div class="offers">
+            <p class="offer-title">
+                Offers
+            </p>
+            <p class="no-offer">
+                <li>No Offer Available</li>
+            </p>
+        </div>
+
+        <div class="specification">
+            <div class="specs">
+                Specifications
+            </div>
+           <div class="key" *ngFor="let k of detailkey;let i =index">
+             
+          <div class="keyname">
+            <span>{{k}} :</span>
+          </div>  
+          <div class="keyvalue">{{productDetail[detailkey[i]]}}</div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mobileonly">
+    <div class="breadcrumb-name">
+      <ul>
+        <li>
+          <a routerLink="/">Home</a>
+          <span class="arrow"> > </span>
+        </li>
+        <li>
+          <a routerLink="/{{ category }}">{{ category }}</a>
+          <span class="arrow"> > </span>
+        </li>
+        <li>
+          <a>{{ productDetail?.name }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="main-img">
+      <div class="padd-img">
+        <img src="{{ selectedImg }}" />
+      </div>
+
+      <div class="small-img">
+        <ul>
+          <li 
+           *ngFor="let image of images;let i = index" 
+           (mouseover)="selectImage(image,i)"
+           [ngClass]="{'active': selectedItem == i}"
+           >
+            <img src="{{ image }}" 
+            />
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="right-img">
+      <div class="details">
+       
+<div class="info">
+  <div class="title">
+    {{ productDetail?.name }}
+  </div>
+
+  <div class="price">
+    <ul>
+      <li>₹{{productDetail?.netprice}}</li>
+      <li class="discount">₹{{productDetail?.price}}</li>
+      <li class="dispercent">{{productDetail?.discount}}% off</li>
+    </ul>
+  </div>
+
+  <div class="offers">
+      <p class="offer-title">
+          Offers
+      </p>
+      <p class="no-offer">
+          <li>No Offer Available</li>
+      </p>
+  </div>
+
+  <div class="button">
+    <button class="btn btn-primary" routerLink="/contact-us">
+        <span class="buynow"></span>
+        CONTACT HERE TO BUY
+    </button>
+</div>
+</div>
+        
+
+        <div class="specification">
+            <div class="specs">
+                Specifications
+            </div>
+           <div class="key" *ngFor="let k of detailkey;let i =index">
+             
+          <div class="keyname">
+            <span>{{k}} :</span>
+          </div>  
+          <div class="keyvalue">{{productDetail[detailkey[i]]}}</div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-related-product [category]="category"></app-related-product>
+</div>

@@ -1,0 +1,63 @@
+<section class="latest-products">
+    <div class="container-fluid">
+        <div class="heading">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="section-tittle">
+                        <h2>Related Product</h2>
+                        <hr >
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="f-right categry-row">
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">All</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">New</a>
+                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Featured</a>
+                                <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Offer</a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="row">
+              <ng-container *ngFor="let product of relatedProducts">
+                <div class="col-xl-3 col-lg-3 col-md-6">
+                    <div class="single-product mb-60">
+                        <div class="product-img">
+                            <img src={{product.img1}} alt="">
+                           
+                        </div>
+                        <div class="product-caption">
+                            <h4>
+                                <a  routerLink='/{{category}}/{{product.name}}+{{product.idno}}' (click) = "reload()">{{product.name}}</a>
+                            </h4>
+                            <div class="product-ratting">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star low-star"></i>
+                                <i class="far fa-star low-star"></i>
+                            </div>
+
+                            <div class="price">
+                                <ul>
+                                    <li>${{product.netprice}}</li>
+                                    <li class="discount">${{product.price}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </ng-container>
+               
+            </div>
+        </div>
+        <hr>
+    </div>
+</section>

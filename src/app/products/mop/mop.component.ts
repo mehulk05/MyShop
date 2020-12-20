@@ -16,21 +16,28 @@ export class MopComponent implements OnInit {
   isFilterMenuOpen:boolean=false
   sortby = ['Sort By', 'Relevance', 'Price -- Low to High', 'Price -- High to Low']
   filtervalues = []
+  isloading: boolean;
   selectedFilters = []
   cookerFilter = [
     // { filter_name: '  ', values: ['Cello', 'Boss', 'Pegion', 'Butterfly'] },
     // { filter_name: 'Type', values: ['Mop,Bucket','Wiper'] },
  
   ]
+  error: any;
 
   constructor(private csv: CsvParserService,private csvFilter:GetfilterFromCSVService) { }
 
   ngOnInit(): void {
+    this.isloading=true
     this.csvFilter.getMopFilter().subscribe(filter =>{
       if(filter){
         this.convertRawFilters(filter)
       }
-      
+      this.isloading= false
+    },e=>{
+      this.isloading= false
+      this.error = e
+      console.log(e)
     })
 
 
@@ -131,7 +138,7 @@ export class MopComponent implements OnInit {
     else {
       this.selectedItem = i
     }
-    console.log(this.selectedItem,data)
+    this.mopDataFilter = this.csv.sortDataByPrice(this.selectedItem,data,this.mopDataFilter)
   }
 
   onItemChange(value){

@@ -1,5 +1,14 @@
+
+
 <section class="latest-products">
-    <div class="container-fluid">
+    <div class="loading" *ngIf="isloading">
+        <div class="spinner-border"></div>
+        <h3>Loading ...</h3>
+        </div>
+      
+   
+
+    <div class="container-fluid" *ngIf="!isloading ">
         <div class="heading">
             <div class="row">
                 <div class="col-lg-4">
@@ -26,91 +35,44 @@
 
         <div class="product">
             <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-6">
-                    <div class="single-product mb-60">
-                        <div class="product-img">
-                            <img src="data:image/jpeg;base64,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"
-                                alt="">
-                            <div class="new-product">
-                                <span>New</span>
+                <ng-container  *ngFor =" let product of latestProducts">
+                    <div class="col-xl-3 col-lg-3 col-md-6">
+                        <div class="single-product mb-60">
+                            <div class="product-img">
+                                <img src={{product.img1}}
+                                    alt="">
+                                <div class="new-product">
+                                    <span>New</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="product-caption">
-                            <h4><a href="#">Green Dress with details</a></h4>
-                            <div class="product-ratting">
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star low-star"></i>
-                                <i class="far fa-star low-star"></i>
-                            </div>
-
-                            <div class="price">
-                                <ul>
-                                    <li>$40.00</li>
-                                    <li class="discount">$60.00</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6">
-                    <div class="single-product mb-60">
-                        <div class="product-img">
-                            <img src="data:image/jpeg;base64,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"
-                                alt="">
-                            <div class="new-product">
-                                <span>New</span>
-                            </div>
-                        </div>
-                        <div class="product-caption">
-                            <h4><a href="#">Green Dress with details</a></h4>
-                            <div class="product-ratting">
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star low-star"></i>
-                                <i class="far fa-star low-star"></i>
-                            </div>
-
-                            <div class="price">
-                                <ul>
-                                    <li>$40.00</li>
-                                    <li class="discount">$60.00</li>
-                                </ul>
+                            <div class="product-caption">
+                                <h4><a routerLink='{{product.category}}/{{product.name}}+{{product.idno}}'>{{product.name}}</a></h4>
+                                <div class="product-ratting">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                </div>
+    
+                                <div class="price">
+                                    <ul>
+                                        <li>${{product.netprice}}</li>
+                                        <li class="discount">${{product.price}}</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6">
-                    <div class="single-product mb-60">
-                        <div class="product-img">
-                            <img src="https://preview.colorlib.com/theme/estore/assets/img/categori/xproduct4.png.pagespeed.ic.E_ANc_dSPj.webp" alt="">
-                            <div class="new-product">
-                                <span>New</span>
-                            </div>
-                        </div>
-                        <div class="product-caption">
-                            <h4><a href="#">Green Dress with details</a></h4>
-                            <div class="product-ratting">
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star low-star"></i>
-                                <i class="far fa-star low-star"></i>
-                            </div>
-
-                            <div class="price">
-                                <ul>
-                                    <li>$40.00</li>
-                                    <li class="discount">$60.00</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </ng-container>
+               
+               
             </div>
         </div>
         <hr>
     </div>
+
+    <div class="error" *ngIf= "error">
+        <h4 class="text-center" style="color:red">{{error?.status}} - {{error?.statusText}}</h4> 
+     </div>   
 </section>

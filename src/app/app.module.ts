@@ -19,6 +19,11 @@ import { IronComponent } from './products/iron/iron.component';
 import { GetfilterFromCSVService } from './services/getfilter-from-csv.service';
 import { LatestProductsComponent } from './latest-products/latest-products.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ContactUsComponent } from './extra/contact-us/contact-us.component';
+import { Notfound404Component } from './extra/notfound404/notfound404.component';
+import { RelatedProductComponent } from './extra/related-product/related-product.component';
+import { AboutUsComponent } from './extra/about-us/about-us.component';
+import { BuinessComponent } from './extra/buiness/buiness.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +37,12 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     MopComponent,
     IronComponent,
     LatestProductsComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ContactUsComponent,
+    Notfound404Component,
+    RelatedProductComponent,
+    AboutUsComponent,
+    BuinessComponent
   ],
   imports: [
     BrowserModule,

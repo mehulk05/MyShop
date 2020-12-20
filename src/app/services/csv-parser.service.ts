@@ -7,6 +7,37 @@ export class CsvParserService {
     public userArray: any[] = [];
     constructor(private http: HttpClient){}
     
+    sortDataByPrice(index,sortby,data){
+      var pattern = /[,]/g
+
+      if(index == 1){
+        data.sort(function(a, b) {
+          return parseFloat(a.srno) - parseFloat(b.srno);
+      });
+      }
+      else if(index ==2){
+        data.sort(function (a,b){
+          //remove unwanted characters so they can be converted to numbers
+          a = +a.netprice.replace(pattern,'');
+          b = +b.netprice.replace(pattern,'');
+          //use the numeric versions to sort the string versions
+          return a-b;
+        });
+      }
+      else{
+        data.sort(function (a,b){
+          //remove unwanted characters so they can be converted to numbers
+          a = +a.netprice.replace(pattern,'');
+          b = +b.netprice.replace(pattern,'');
+          //use the numeric versions to sort the string versions
+          return b-a;
+        });
+      }
+      
+      
+    return data
+    }
+
      public getCooker(): Observable<any> {
         const id = "1GLoPM2OKSGQPypZeBL3uCl4diAi4YXLye-LrXIx4jr4"
         const url = `https://spreadsheets.google.com/feeds/list/${id}/o6isq5z/public/values?alt=json`;

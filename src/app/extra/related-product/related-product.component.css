@@ -1,0 +1,10 @@
+.section-tittle{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media screen and (max-width:551px){
+    section.latest-products{
+        padding-top: 0px;
+    }
+}

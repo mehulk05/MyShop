@@ -45,14 +45,18 @@
     </div>
 </nav>
 
+<div class="loading" *ngIf="isloading">
+    <div class="spinner-border"></div>
+    <h3>Loading ...</h3>
+    </div>
 
-<section class="product-page">
+<section class="product-page" *ngIf="!isloading">
     <div class="product-container">
         <div class="row">
             <div class="col-md-3 col-lg-3 col-12">
                 <div class="left-panel white-bg">
                     <div class="product-img">
-                        <img src="https://rukminim1.flixcart.com/flap/540/289/image/3fd264.jpg?q=50">
+                        <img src="https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/07/490408-The-8-Best-Immersion-Blenders-of-2020_1296x728-header_body.jpg?w=1155&h=1530">
                         <hr>
                     </div>
                     <div class="product-filter-category"  [ngClass]="isFilterMenuOpen? 'open':'closed'"> 
@@ -150,7 +154,7 @@
                                             </div>
                                         </div>
                                         <div class="product-caption">
-                                           <a href="#">{{cooker.name}}</a>
+                                            <a  routerLink='/blender/{{cooker.name}}+{{cooker.idno}}'>{{cooker.name}}</a>
                                             <div class="product-ratting">
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>

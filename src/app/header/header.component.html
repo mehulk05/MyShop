@@ -12,11 +12,15 @@
                 <ul class="header-right f-right   d-flex justify-content-between">
                     <li class="">
                         <div class="form-box f-right ">
-                            <input type="text" name="Search" placeholder="Search products">
+                            <input type="text" name="Search" placeholder="Search products" (keyup)="onKeyUp($event)">
                             <div class="search-icon">
                                 <i class="fas fa-search special-tag"></i>
                             </div>
                         </div>
+                        <div class="dropdown" *ngIf = "options.length>0">
+                            <option class="dropdown-option" *ngFor ="let option of options" (click)="goTopage(option)">{{option}}</option>
+                        </div>
+                        
                     </li>
 
                 </ul>
@@ -25,9 +29,9 @@
                 <div class="main-menu f-right d-none d-lg-block">
                     <nav>
                         <ul id="navigation">
-                            <li><a href="/about">About</a></li>
-                            <li><a href="/about">Contact</a></li>
-                            <li><a href="/about">Buisness with us</a></li>
+                            <li><a routerLink="/about-us">About</a></li>
+                            <li><a routerLink="/contact-us">Contact</a></li>
+                            <li><a routerLink="/buisness">Buisness with us</a></li>
                         </ul>
                     </nav>
                 </div>

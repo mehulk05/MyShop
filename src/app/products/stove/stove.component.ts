@@ -16,6 +16,7 @@ export class StoveComponent implements OnInit {
   isFilterMenuOpen:boolean=false
   sortby = ['Sort By', 'Relevance', 'Price -- Low to High', 'Price -- High to Low']
   filtervalues = []
+  isloading: boolean;
   selectedFilters = []
   cookerFilter = [
     // { filter_name: 'BrandName', values: ['Prestige', 'Bajaj', 'Sunflame', 'Butterfly'] },
@@ -24,22 +25,28 @@ export class StoveComponent implements OnInit {
     // { filter_name: 'Ignition Type', values: ['Automatic','Manual'] }
  
   ]
+  error: any;
 
   constructor(private csv: CsvParserService,private csvFilter:GetfilterFromCSVService) { }
 
 
   ngOnInit(): void {
+    this.isloading=true
     this.csvFilter.getStoveFilter().subscribe(filter =>{
       if(filter){
         this.convertRawFilters(filter)
       }
-      
+      this.isloading= false
     })
 
     this.csv.getStoves().subscribe(res => {
       this.stoveData = res
       this.stoveDataFilter = res
       console.log(this.stoveData)
+    },e=>{
+      this.isloading= false
+      this.error = e
+      console.log(e)
     })
   }
 
@@ -144,7 +151,7 @@ export class StoveComponent implements OnInit {
     else {
       this.selectedItem = i
     }
-    console.log(this.selectedItem,data)
+    this.stoveDataFilter = this.csv.sortDataByPrice(this.selectedItem,data,this.stoveDataFilter)
   }
 
   onItemChange(value){
