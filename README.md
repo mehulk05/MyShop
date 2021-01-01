@@ -1,5 +1,8 @@
 # MyShop
 
+### Contribute to the developer by Clicking the button below
+[<img src="https://razorpay.com/unfiltered-content/uploads/2020/08/Screenshot-2020-08-10-at-2.12.45-PM.png" width="200"/>](https://razorpay.com/payment-button/pl_GItmNuFbNjkLLY/view/?utm_source=payment_button&utm_medium=button&utm_campaign=payment_button)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.10.
 
 ## Development server
