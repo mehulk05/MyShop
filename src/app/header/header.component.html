@@ -7,12 +7,22 @@
                         <h2 style="color:#fff">Pawan Steels</h2>
                     </a>
                 </div>
+                <div class="mobile-only-icon">
+                    <div class="container" class="icon"
+                    [ngClass]="isMenuOpen ? 'open' : 'closed'"
+                     (click)="openMenu()">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                      </div>
+                    
+                </div>
             </div>
             <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
                 <ul class="header-right f-right   d-flex justify-content-between">
                     <li class="">
                         <div class="form-box f-right ">
-                            <input type="text" name="Search" placeholder="Search products" (keyup)="onKeyUp($event)">
+                            <input type="text" name="Search" placeholder="Search products" (keyup)="onKeyUp($event)" (click)="onClick($event)">
                             <div class="search-icon">
                                 <i class="fas fa-search special-tag"></i>
                             </div>
@@ -32,10 +42,32 @@
                             <li><a routerLink="/about-us">About</a></li>
                             <li><a routerLink="/contact-us">Contact</a></li>
                             <li><a routerLink="/buisness">Buisness with us</a></li>
+                         <li  ><a routerLink="/donate-now">Donate Here</a></li>
+
                         </ul>
                     </nav>
                 </div>
             </div>
-        </div>
+        </div>      
     </div>
+
 </div>
+
+
+<div *ngIf="isMenuOpen" class="headerMenu"  [ngClass]="isMenuOpen? 'open':'closed'">
+    <div class="Menu-heading">
+        <span> Menu </span>   
+        <hr class="mb-0">
+     </div>
+
+     <div class="Menus">
+        <nav>
+            <ul id="navigation" >
+                <li (click)="openMenu()"><a routerLink="/about-us">About</a></li>
+                <li  (click)="openMenu()"><a routerLink="/contact-us">Contact</a></li>
+                <li  (click)="openMenu()"><a routerLink="/buisness">Buisness with us</a></li>
+                <li  (click)="openMenu()"><a routerLink="/donate-now">Donate Now</a></li>
+            </ul>
+        </nav>
+     </div>
+ </div>

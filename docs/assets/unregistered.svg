@@ -1,0 +1,1 @@
+<svg width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="22" fill="#546DF5"/><circle cx="22" cy="16" r="6" fill="#fff"/><mask id="a" maskUnits="userSpaceOnUse" x="8" y="8" width="28" height="28"><circle cx="22" cy="22" r="14" fill="#D0021B"/></mask><g mask="url(#a)"><ellipse cx="22.5" cy="33" rx="9.5" ry="8" fill="#fff"/></g></svg>

@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   options = []
+  isMenuOpen:boolean =false
   category = ["Cooker", "Mixer", "Blender", "Iron", "Gas Stove", "Mop"]
   constructor(private router :Router) { }
-
   ngOnInit(): void {
   }
 
@@ -20,14 +20,20 @@ export class HeaderComponent implements OnInit {
    this.router.navigateByUrl("/"+option)
     console.log()
     this.options = []
-
   }
+
+onClick(e){
+   let value = e.target.value
+   console.log(value)
+}
+
+openMenu(){
+this.isMenuOpen =!this.isMenuOpen
+console.log(this.isMenuOpen)
+}
+
   onKeyUp(e) {
     let value = e.target.value
-    // console.log(e.target.value)
-    // let data  = this.category.filter(x=>x == value)
-    // console.log(data)
-
     var textToSearch = value;
     this.options = this.category.filter((str) => {
 

@@ -1,0 +1,162 @@
+.donatePage {
+  padding: 55px 50px;
+}
+
+.showSupport {
+  padding: 20px;
+  background-color: #ebedef;
+}
+
+.showSupport h3 {
+  padding: 0px 0 25px 0;
+  color: #051961d4;
+}
+
+.showSupport p {
+  margin: 0;
+}
+
+.paper-nach {
+  background-image: url("/assets/paper-nach-bg-1.svg");
+}
+
+.paper-nach {
+  
+
+  flex-shrink: 0;
+  border-radius: 5px;
+  margin: 0 0 45px 0;
+  padding: 40px;
+  box-shadow: 0 4px 22px rgba(202, 202, 202, 0.25);
+  cursor: pointer;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+  background-position-y: -2px;
+  background-position-x: -2px;
+}
+
+.nav-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0;
+}
+
+.paper-nach h3 {
+  padding: 25px 0 4px;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  color: #0d2366;
+  margin-bottom: 6px;
+}
+
+.description {
+  color: #0d2462;
+  line-height: 1.49;
+  font-size: 16px;
+}
+
+
+
+.paper-nach a{
+    text-decoration: none;
+}
+div.paper-nach:hover {
+    background-image: url("/assets/paper-nach-hover.svg");
+    background-position: initial;
+    -webkit-transform: scale(1.05,1.05);
+    -ms-transform: scale(1.05,1.05);
+    transform: scale(1.05,1.05);
+    transition: transform 175ms ease-in,opacity 175ms ease-in,-webkit-transform 175ms ease-in;
+}
+
+
+
+.payNowLinks{
+  margin-top: 55px;
+}
+
+.razorpay-payment-button.svelte-ohbfj8 {
+  position: relative;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.link-buttom{
+  background: #072654;
+  border-color: #072654;
+  color: #fff;
+  position: relative;
+    display: inline-block;
+    min-width: 160px;
+    height: 40px;
+    padding: 0;
+    border-radius: 3px;
+    text-align: center;
+    font-style: italic;
+    font-family: Muli,helvetica,sans-serif;
+    font-display: swap;
+    overflow: hidden;
+    border: 1px solid transparent;
+    outline: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+}
+
+.link-buttom::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 0;
+  width: 46px;
+  height: 100%;
+  background: #1e40a0;
+  border-radius: 2px 0 0 2px;
+  transform: skew(-15deg,0);
+}
+svg.svelte-ekc7fv.svelte-ekc7fv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 9px 11px;
+}
+ svg path.svelte-ekc7fv {
+  fill: #fff;
+}
+
+ .PaymentButton-contents.svelte-ekc7fv {
+  padding-left: 60px;
+}
+
+.PaymentButton-contents.svelte-ekc7fv.svelte-ekc7fv {
+  padding: 4px 28px 4px 44px;
+  margin: 1px 0;
+}
+
+.PaymentButton-text.svelte-ekc7fv.svelte-ekc7fv {
+  display: block;
+  min-height: 18px;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: 800;
+  opacity: 1;
+  text-transform: initial;
+}
+.PaymentButton-securedBy.svelte-ekc7fv.svelte-ekc7fv {
+  font-size: 8px;
+  line-height: 10px;
+  text-transform: initial;
+  margin-top: 0;
+  opacity: .6;
+}
+
+.paay-button{
+  padding-top: 25px;
+  text-align: center;
+}
+
+.container.payNowLinks .col-md-6.col-12{
+  margin: 0 auto;
+
+}

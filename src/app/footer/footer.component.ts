@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
-  constructor() { }
+ 
+   constructor() {};
 
   ngOnInit(): void {
   }
+  goToUrl(){
+    window.location.href='https://rzp.io/l/LZKN8q8S';
+
+  }
+  
 
 }

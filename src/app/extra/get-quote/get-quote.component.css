@@ -1,0 +1,36 @@
+.bg-gray {
+    background-color: #fafbfb;
+}
+
+.section {
+    position: relative;
+    border-bottom: none;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+}
+
+
+.text-muted {
+    color: #868e96 !important;
+}
+.w-50px {
+    width: 50px !important;
+}
+.btn-success {
+    color: #fff;
+    background-color: #3cd458;
+    border-color: #3cd458;
+}
+h2{
+    font-family: Dosis,sans-serif;
+}
+@media (max-width: 991.98px)
+{
+    .section {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+}
